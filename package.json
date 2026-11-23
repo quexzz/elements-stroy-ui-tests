@@ -1,0 +1,21 @@
+{
+  "name": "element-stroy-ui",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node core/run.js",
+    "test:headed": "node core/run.js --headed"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "allure": "3.33.0",
+    "allure-js-commons": "3.15.0",
+    "allure-playwright": "3.15.0",
+    "pino": "9.14.0"
+  },
+  "packageManager": "pnpm@11.25.0"
+}

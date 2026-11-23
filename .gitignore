@@ -1,0 +1,10 @@
+node_modules/
+runs/
+allure-results/
+test-results/
+playwright-report/
+.env
+.env.*
+.auth/
+playwright/.auth/
+storage-state*.json
