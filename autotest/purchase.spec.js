@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 import { test } from '../core/fixtures.js';
 import { account, buyer, product, requireAccount } from '../core/data.js';
 import { LoginPage } from '../ui/login-page.js';
@@ -8,7 +9,11 @@ import { CheckoutPage } from '../ui/checkout-page.js';
 const sessionFile = process.env.SHOP_SESSION_FILE;
 if (sessionFile) test.use({ storageState: sessionFile });
 
-test('TC-C20 · От входа до готовности оформить заказ', async ({ page, journal }) => {
+test('TC-C20 · От входа до готовности оформить заказ', async ({ page, journal }, testInfo) => {
+  await testInfo.attach('Тестовые данные', {
+    path: fileURLToPath(new URL('../report/Тестовые данные.pdf', import.meta.url)),
+    contentType: 'application/pdf'
+  });
   await journal.parameters({ 'Товар': product.name, 'Количество': '1', 'Завершение': 'Проверка итоговой формы до отправки' });
   const login = new LoginPage(page);
   const catalog = new CatalogPage(page);
